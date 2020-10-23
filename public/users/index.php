@@ -1,4 +1,6 @@
 <?php
+require '../../core/session.php';
+
 include '../../core/db_connect.php';
 
 $content=null;
@@ -15,3 +17,4 @@ $content .= "<br><br><a href=\"add.php\">New User</a>";
 
 
 include '../../core/layout.php';
+checkSession();

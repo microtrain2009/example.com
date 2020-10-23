@@ -1,4 +1,6 @@
 <?php
+require '../../core/session.php';
+
 include '../../core/db_connect.php';
 
 $input = filter_input_array(INPUT_GET);

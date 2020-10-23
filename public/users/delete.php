@@ -1,4 +1,6 @@
 <?php
+require '../../core/session.php';
+
 require '../../config/keys.php';
 require '../../core/db_connect.php';
 
@@ -36,3 +38,4 @@ $content=<<<EOT
 EOT;
 
 require '../../core/layout.php';
+checkSession();

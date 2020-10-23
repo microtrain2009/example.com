@@ -1,4 +1,5 @@
 <?php
+require '../core/session.php';
 
 //Build the page metadata
 $meta = [];
@@ -35,4 +36,4 @@ $content = <<<EOT
         </main>
 EOT;
     
-include '../core/layout.php';
+require '../core/layout.php';

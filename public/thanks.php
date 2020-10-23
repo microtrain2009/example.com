@@ -1,4 +1,5 @@
 <?php
+require '../core/session.php';
 
 //Build the page metadata
 $meta = [];
