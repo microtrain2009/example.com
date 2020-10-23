@@ -1,6 +1,5 @@
 <?php
-require '../../core/session.php';
-
+require '../../core/bootstrap.php';
 include '../../core/db_connect.php';
 
 $input = filter_input_array(INPUT_GET);

@@ -1,6 +1,5 @@
 <?php
-require '../core/session.php';
-
+require '../core/bootstrap.php';
 require '../core/processContactForm.php';
  
 //Build the page metadata

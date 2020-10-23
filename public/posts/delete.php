@@ -1,7 +1,5 @@
 <?php
-require '../../core/session.php';
-
-require '../../config/keys.php';
+require '../../core/bootstrap.php';
 require '../../core/db_connect.php';
 
 $args=[
