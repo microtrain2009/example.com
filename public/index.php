@@ -1,32 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      <title>Hello, I am MicroTrain 2009</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="author" href="humans.txt" />
-      <meta name="description" content="Microtrain2009 Welcome">
-      <meta name="keywords" content="full stack, web developer, full stack web developer, CSM, Scrum Master">
-      <meta name="msapplication-config" content="ieconfig.xml" />
-      <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-      <link rel="manifest" href="site.webmanifest">
-      <link href="./dist/css/main.min.css" type="text/css" rel="stylesheet">
-    </head>
-    <body>
-      <header>
-        <span class="logo">MicroTrain2009</span>
-        <a id="toggleMenu">Menu<a>
-          <nav>
-            <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-          <main>
+<?php
+
+//Build the page metadata
+$meta = [];
+$meta['description'] = "Welcome MicroTrain2009 For Web Development";
+$meta['keywords'] = "MicroTrain2009, contact, web, development";
+
+$content = <<<EOT
+        <main>
           <h1>Microtrain 2009</h1>
           <img class="avatar" src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm&s=64" alt="MicroTrain2009 Avatar">
           <p>Welcome to class. We are here to develop web and mobile hybrid applications...</p>
@@ -53,22 +33,6 @@
             agile and scrum methodologies. You will apply these skills throughout the course building an array of applications to add to your project portfolio. 
           </p>
         </main>
-
-        <script>
-
-          var toggleMenu = document.getElementById('toggleMenu');
-          var nav = document.querySelector('nav');
-          toggleMenu.addEventListener(
-            'click',
-            function(){
-              if(nav.style.display=='block'){
-                nav.style.display='none';
-              }else{
-                nav.style.display='block';
-              }
-            }
-          );
-        </script>
+EOT;
     
-      </body>
-</html>
+include '../core/layout.php';
