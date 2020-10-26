@@ -1,7 +1,8 @@
 <?php
-require '../../core/bootstrap.php';
 require '../../core/functions.php';
 require '../../core/db_connect.php';
+require '../../core/bootstrap.php';
+// checkSession();
 
 $message=null;
 
@@ -19,14 +20,20 @@ if(!empty($input)){
     $input = array_map('trim', $input);
 
     //Sanitiezed insert
-    $sql = 'INSERT INTO users SET id=uuid(), first_name=?, last_name=?, email=?';
+    $sql = 'INSERT INTO
+        users
+      SET
+        id=uuid(),
+        first_name=?,
+        last_name=?,
+        email=?';
 
     if($pdo->prepare($sql)->execute([
         $input['first_name'],
         $input['last_name'],
         $input['email']
     ])){
-       header('LOCATION:/example.com/public/users');
+      header('LOCATION:./view.php?email=' . $input['email']);
     }else{
         $message = 'Something bad happened';
     }
@@ -36,23 +43,18 @@ $content = <<<EOT
 <h1>Add a New User</h1>
 {$message}
 <form method="post">
-
 <div class="form-group">
     <label for="first_name">First Name</label>
     <input id="first_name" name="first_name" type="text" class="form-control">
 </div>
-
 <div class="form-group">
     <label for="last_name">Last Name</label>
-    <input id="last_name" name="last_name" type="text class="form-control">
+    <input id="last_name" name="last_name" type="text" class="form-control">
 </div>
-
 <div class="form-group">
     <label for="email">Email</label>
-    <input id="email" name="email" type="text class="form-control">
+    <input id="email" name="email" type="text" class="form-control">
 </div>
-
-
 <div class="form-group">
     <input type="submit" value="Submit" class="btn btn-primary">
 </div>
@@ -60,4 +62,3 @@ $content = <<<EOT
 EOT;
 
 include '../../core/layout.php';
-checkSession();

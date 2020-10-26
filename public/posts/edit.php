@@ -66,7 +66,8 @@ if(!empty($input)){
         'meta_keywords'=>$input['meta_keywords'],
         'id'=>$input['id']
     ])){
-       header('LOCATION:/example.com/public/posts/view.php?slug=' . $row['slug']);
+      //  header('LOCATION:/example.com/public/posts/view.php?slug=' . $row['slug']);
+      header('LOCATION:view.php?slug=' . $row['slug']);
     }else{
         $message = 'Something bad happened';
     }

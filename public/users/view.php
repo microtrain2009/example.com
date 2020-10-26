@@ -1,8 +1,10 @@
 <?php
+require '../../core/db_connect.php';
 require '../../core/bootstrap.php';
-include '../../core/db_connect.php';
+// checkSession();
 
 $input = filter_input_array(INPUT_GET);
+
 $id = !(empty($input['id']))?$input['id']:null;
 $email = !(empty($input['email']))?$input['email']:null;
 
@@ -14,9 +16,8 @@ if(!empty($email)){
   $where = 'id = :lookup';
 }
 
-$content=null;
-$stmt = $pdo->prepare('SELECT * FROM users WHERE id = ?');
-$stmt->execute([$id]);
+$stmt = $pdo->prepare("SELECT * FROM users WHERE {$where}");
+$stmt->execute(['lookup'=>$lookup]);
 $row = $stmt->fetch();
 
 $meta=[];
@@ -33,5 +34,4 @@ $content=<<<EOT
 </div>
 EOT;
 
-include '../../core/layout.php';
-checkSession();
+require '../../core/layout.php';

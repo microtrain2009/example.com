@@ -1,8 +1,7 @@
 <?php
-require '../../core/bootstrap.php';
-
 require '../../core/functions.php';
 require '../../core/db_connect.php';
+require '../../core/bootstrap.php';
 
 $message=null;
 
@@ -27,14 +26,17 @@ if(!empty($input)){
     $slug = slug($input['title']);
 
     //Sanitiezed insert
-    $sql = 'INSERT INTO posts SET id=uuid(), title=?, slug=?, body=?';
+    $sql = 'INSERT INTO posts SET id=uuid(), title=?, slug=?, body=?, meta_description=?, meta_keywords=?'
+    ;
 
     if($pdo->prepare($sql)->execute([
         $input['title'],
         $slug,
-        $input['body']
+        $input['body'],
+        $input['meta_description'],
+        $input['meta_keywords']
     ])){
-       header('LOCATION:/example.com/public/posts');
+       header('LOCATION:/example.com/public/posts/');
     }else{
         $message = 'Something bad happened';
     }
@@ -69,6 +71,9 @@ $content = <<<EOT
 
 <div class="form-group">
     <input type="submit" value="Submit" class="btn btn-primary">
+    <input type="reset" value="Reset" class="btn btn-secondary">
+    <br><br>
+    <a href="./" class="btn btn-danger">Cancel</a>
 </div>
 </form>
 EOT;

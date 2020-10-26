@@ -1,6 +1,7 @@
 <?php
-require '../../core/bootstrap.php';
 require '../../core/db_connect.php';
+require '../../core/bootstrap.php';
+// checkSession();
 
 $args=[
   'id'=>FILTER_UNSAFE_RAW,
@@ -27,13 +28,10 @@ $meta['title']="DELETE: {$row['first_name']} {$row['last_name']}";
 $content=<<<EOT
 <h1 class="text-danger text-center">DELETE: {$row['first_name']} {$row['last_name']}</h1>
 <p class="text-danger text-center">Are you sure you want to delete {$row['first_name']} {$row['last_name']}?</p>
-
 <div class="text-center">
-  <a href="/example.com/public/users" class="btn btn-success btn-lg">Cancel</a>
+  <a href="./" class="btn btn-success btn-lg">Cancel</a>
   <br><br>
-  <a href="/example.com/public/users/delete.php?id={$row['id']}&confirm=1" class="btn btn-link text-danger">Delete</a>
-</div>
+  <a href="delete.php?id={$row['id']}&confirm=1" class="btn btn-link text-danger">Delete</a>
 EOT;
 
 require '../../core/layout.php';
-checkSession();

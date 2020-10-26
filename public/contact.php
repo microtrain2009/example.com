@@ -1,5 +1,4 @@
 <?php
-require '../core/bootstrap.php';
 require '../core/processContactForm.php';
  
 //Build the page metadata
@@ -9,7 +8,6 @@ $meta['keywords'] = "contact, web, development";
 
 $content = <<<EOT
 <form class="contact-form" action="contact.php" method="POST">
-    {$message}
     <input type="hidden" name="subject" value="New submission!">
   
   <div class="form-control">
